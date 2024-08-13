@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedro Casarin Lopes</title>
-    <link rel="icon" href="{{ url_for('static', filename='img/icon') }}" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/png">
     <style>
         * {
             margin: 0;
@@ -19,6 +19,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth; /* Adiciona rolagem suave */
         }
 
         .header {
@@ -33,11 +34,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
         }
 
-        .header img {
-            height: 60px;
-            margin-top: 10px;
-        }
-
         .header-nav {
             margin-top: 10px;
         }
@@ -47,12 +43,35 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2em;
+            position: relative;
+            transition: color 0.3s, text-shadow 0.3s; /* Transição suave */
+        }
+
+        .header-nav a:hover {
+            color: #FFD700; /* Cor de destaque ao passar o mouse */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Efeito de sombra no texto */
+        }
+
+        .header-nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .header-nav a:hover::after {
+            width: 100%; /* Linha sublinhada animada */
         }
 
         main {
             max-width: 800px;
             margin: 0 auto;
-            padding: 120px 15px 80px; /* Ajusta o padding para não sobrepor o conteúdo */
+            padding: 60px 15px 80px; /* Reduz o padding para diminuir o espaço entre o cabeçalho e o título */
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -97,11 +116,12 @@
         .footer img {
             height: 30px; /* Ajusta o tamanho da imagem do GitHub */
             margin-top: 5px;
+            transition: transform 0.3s, filter 0.3s; /* Transição suave para transformações e filtros */
         }
 
-        .footer a {
-            color: #E1B8C0;
-            text-decoration: none;
+        .footer img:hover {
+            transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+            filter: brightness(1.2); /* Aumenta o brilho ao passar o mouse */
         }
 
         @media (max-width: 768px) {
@@ -139,11 +159,34 @@
         .section {
             padding: 20px;
         }
+
+        /* Estilo para os itens da lista de jogos */
+        .games-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .games-list img {
+            max-width: 300px; /* Define o tamanho fixo para as imagens dos jogos */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, filter 0.3s; /* Transição suave para transformações e filtros */
+        }
+
+        .games-list img:hover {
+            transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+            filter: brightness(1.2); /* Aumenta o brilho ao passar o mouse */
+        }
+
+        .games-list li {
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Pedro Casarin Lopes">
         <h1>Pedro Casarin Lopes</h1>
         <p>Estudante de Programação</p>
         <nav class="header-nav">
@@ -162,10 +205,13 @@
         <section id="games" class="section">
             <h2 class="listing-heading">Games Favoritos</h2>
             <p class="paragrafo">Aqui estão alguns dos meus jogos favoritos:</p>
-            <ul>
-                <li>Jogo 1</li>
-                <li>Jogo 2</li>
-                <li>Jogo 3</li>
+            <ul class="games-list">
+                <li>
+                    <a href="https://www.youtube.com/watch?v=XhP3Xh4LMA8"><img src="{{ url_for('static', filename='img/fifa.png') }}" alt="FIFA"></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=FYH9n37B7Yw"><img src="{{ url_for('static', filename='img/forza.png') }}" alt="FORZA"></a>
+                </li>
             </ul>
         </section>
 
@@ -173,9 +219,9 @@
             <h2 class="listing-heading">Projetos</h2>
             <p class="paragrafo">Aqui estão alguns dos projetos em que trabalhei:</p>
             <ul>
-                <li>Projeto 1</li>
-                <li>Projeto 2</li>
-                <li>Projeto 3</li>
+                <p>Se você quer ver todos meus projetos, clique no símbolo do GITHUB ao fim da página <br> aqui estão meus principais projetos:</p>
+                <a href="https://github.com/Casarin0118/home-app"><li>Projeto de site de venda de imóveis utilizando JavaScript</li></a>
+                <a href="https://github.com/Casarin0118/erp-em-c"><li>Projeto de um sistema ERP utilizando somente a linguagem C</li></a>
             </ul>
         </section>
     </main>
