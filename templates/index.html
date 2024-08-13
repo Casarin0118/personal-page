@@ -3,26 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GearheadBR</title>
-    <link rel="stylesheet" href="/static/index.css">
-    <link rel="icon" href="img/pin.png" type="image/png">
+    <title>Pedro Casarin Lopes</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/icon') }}" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #AB0E2F;
+            color: #E1B8C0;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+        }
+
+        .header img {
+            height: 60px;
+            margin-top: 10px;
+        }
+
+        .header-nav {
+            margin-top: 10px;
+        }
+
+        .header-nav a {
+            color: #E1B8C0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 15px 80px; /* Ajusta o padding para não sobrepor o conteúdo */
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .listing-heading {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #AB0E2F;
+        }
+
+        .imagem {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .conteudo {
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .paragrafo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #AB0E2F;
+            color: #E1B8C0;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+        }
+
+        .footer img {
+            height: 30px; /* Ajusta o tamanho da imagem do GitHub */
+            margin-top: 5px;
+        }
+
+        .footer a {
+            color: #E1B8C0;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .listing-heading {
+                font-size: 2em;
+            }
+
+            .header img {
+                height: 50px;
+            }
+
+            .imagem {
+                border-radius: 5px;
+            }
+
+            .paragrafo {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        html ::-webkit-scrollbar-track {
+            background: #AB0E2F;
+        }
+
+        html ::-webkit-scrollbar-thumb {
+            border-radius: 50px;
+            background: #68091E;
+        }
+
+        html ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .section {
+            padding: 20px;
+        }
+    </style>
 </head>
-<body class="fundo-texto">
+<body>
     <header class="header">
-        <img src="img/Gearheadbr (1).png" alt="Logotipo do site" class="imagem-cabeçalho">
+        <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Pedro Casarin Lopes">
+        <h1>Pedro Casarin Lopes</h1>
+        <p>Estudante de Programação</p>
+        <nav class="header-nav">
+            <a href="#sobre">Sobre</a>
+            <a href="#games">Games Favoritos</a>
+            <a href="#projetos">Projetos</a>
+        </nav>
     </header>
     <main>
-        <h1 class="listing-heading">Koenigsegg Jesko Absolut <br> Estabelece Recorde de Velocidade</h1>
-        <img src="img/carro.png" alt="Koenigsegg Jesko Absolut" class="imagem">
-        <section class="conteudo">
-            <p class="paragrafo">Neste mês, a marca sueca Koenigsegg fez história ao realizar testes intensivos com seu mais recente hypercarro, o Jesko Absolut 2024. Durante esses testes, o Jesko Absolut não apenas confirmou sua reputação como um dos mais rápidos do mundo, mas também estabeleceu um novo recorde ao se tornar o carro mais veloz na faixa dos 200 até os 400 km/h.</p>
-            <p class="paragrafo">Essa conquista coloca a Koenigsegg na vanguarda da engenharia automotiva de alta performance, superando não apenas os limites de velocidade anteriores, mas também eclipsando a concorrência direta, como a renomada Bugatti. A marca não poupou esforços para otimizar cada aspecto do Jesko Absolut, desde o design aerodinâmico até o poderoso motor, que desempenhou um papel crucial em alcançar essa notável marca.</p>
-            <p class="paragrafo">Com cada detalhe meticulosamente ajustado e testado, o Jesko Absolut não apenas alcançou velocidades vertiginosas, mas também demonstrou um equilíbrio excepcional entre potência bruta e controle refinado. Este feito não é apenas um marco para a Koenigsegg, mas também para toda a indústria automotiva, destacando o contínuo avanço tecnológico e a busca incansável pela excelência em engenharia.</p>
-            <p class="paragrafo">À medida que a Koenigsegg celebra esse recorde impressionante, o mundo automotivo aguarda ansiosamente para ver qual será o próximo passo da marca na sua jornada para definir novos padrões de desempenho e inovação no segmento de hypercarros.</p>
+        <section id="sobre" class="conteudo">
+            <h1 class="listing-heading">Meu Site Pessoal</h1>
+            <p class="paragrafo">Olá, sou Pedro Casarin Lopes. Tenho 17 anos e nasci no dia 18/07/2007. Estudo programação e atualmente estou cursando Desenvolvimento de Sistemas no SENAI. Além disso, estudo no SESI no Ensino Médio.</p>
+            <p class="paragrafo">Nos meus momentos livres, gosto de jogar videogame e jogar bola.</p>
+        </section>
+
+        <section id="games" class="section">
+            <h2 class="listing-heading">Games Favoritos</h2>
+            <p class="paragrafo">Aqui estão alguns dos meus jogos favoritos:</p>
+            <ul>
+                <li>Jogo 1</li>
+                <li>Jogo 2</li>
+                <li>Jogo 3</li>
+            </ul>
+        </section>
+
+        <section id="projetos" class="section">
+            <h2 class="listing-heading">Projetos</h2>
+            <p class="paragrafo">Aqui estão alguns dos projetos em que trabalhei:</p>
+            <ul>
+                <li>Projeto 1</li>
+                <li>Projeto 2</li>
+                <li>Projeto 3</li>
+            </ul>
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2024 GearheadBR. Todos os direitos reservados.</p>
+        <p>Confira meu perfil no GitHub:</p>
+        <a href="https://github.com/Casarin0118">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+        </a>
     </footer>
 </body>
 </html>
